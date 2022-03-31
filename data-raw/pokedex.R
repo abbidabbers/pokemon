@@ -1,5 +1,3 @@
-## code to prepare `pokedex` dataset goes here
-
 library(tidyverse)
 library(janitor)
 
