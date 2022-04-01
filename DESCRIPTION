@@ -5,6 +5,7 @@ Version: 0.1.0
 Authors@R: c(
     person("Abbie", "Benfield", email = "abbidabbers@gmail.com", role = c("aut", "cre"))
     person("Elina", "Gordon-Halpern", email = "egordonhalpern@smith.edu", role = c("ctb"))
+    person("Kasey", "Jean-Jacques", email = "kjeanjacques@smith.edu", role = c("ctb"))
     )
 Maintainer: Abbie Benfield <abbidabbers@gmail.com>
 Description: More about what it does (maybe more than one line)
