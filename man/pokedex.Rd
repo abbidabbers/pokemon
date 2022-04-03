@@ -7,7 +7,7 @@
 \format{
 A data frame of 24 rows representing Pokémon and 28 variables
 \describe{
-\item{national_no}{Number in the National Pokédex.}
+\item{natl_no}{Number in the National Pokédex.}
 \item{name}{Name of Pokémon}
 \item{type}{Type of Pokémon.}
 \item{species}{Species of Pokémon.}
@@ -15,8 +15,8 @@ A data frame of 24 rows representing Pokémon and 28 variables
 \item{ability1, ability2, hidden_ability}{Abilities of Pokémon.}
 \item{ev_yield}{Effort value yield of Pokémon.}
 \item{catch_rate}{Catch rate of Pokémon.}
-\item{base_friendship}{Base friendship of Pokémon.}
-\item{base_exp}{Base experience of Pokémon.}
+\item{base_friend}{Base friendship value of Pokémon.}
+\item{base_exp}{Base experience value of Pokémon.}
 \item{growth_rate}{Growth rate of Pokémon.}
 \item{egg_group}{Egg group of Pokémon.}
 \item{male}{Percentage of Pokémon that are male.}
@@ -25,13 +25,13 @@ A data frame of 24 rows representing Pokémon and 28 variables
 \item{base_hp}{Base health points of Pokémon.}
 \item{base_attack}{Base attack of Pokémon.}
 \item{base_defense}{Base defense of Pokémon.}
-\item{base_sp_attack}{Base special attack of Pokémon.}
-\item{base_special_defense}{Base special defense of Pokémon.}
+\item{base_spattack}{Base special attack of Pokémon.}
+\item{base_spdefense}{Base special defense of Pokémon.}
 \item{base_speed}{Base speed of Pokémon.}
-\item{base_stat_total}{Total value of Pokémon's base stats (excluding base experience and base friendship).}
+\item{base_total}{Total value of Pokémon's base stats (excluding base experience and base friendship).}
 \item{type_defenses}{Effectiveness of each type on Pokémon, in order: Normal, Fire, Water, Electric, Grass, Ice, Fighting, Posion, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, and Fairy.}
-\item{evolution_order}{Evolution order of Pokémon.}
-\item{evolution_level}{Level that Pokémon evolves at.}
+\item{evo_order}{Evolution order of Pokémon.}
+\item{evo_level}{Level that Pokémon evolves at.}
 }
 }
 \source{

@@ -3,8 +3,8 @@ Type: Package
 Title: Pokemon Datasets
 Version: 0.1.0
 Authors@R: c(
-    person("Abbie", "Benfield", email = "abbidabbers@gmail.com", role = c("aut", "cre"))
-    person("Elina", "Gordon-Halpern", email = "egordonhalpern@smith.edu", role = c("aut", "cre"))
+    person("Abbie", "Benfield", email = "abbidabbers@gmail.com", role = c("aut", "cre")),
+    person("Elina", "Gordon-Halpern", email = "egordonhalpern@smith.edu", role = c("aut", "cre")),
     person("Kasey", "Jean-Jacques", email = "kjeanjacques@smith.edu", role = c("aut", "cre"))
     )
 Description: A collection of Pokemon-related datasets, including ones for individual statistics, regional maps, and available moves.
