@@ -8,21 +8,26 @@ pokemon_raw <-
 
 pokemon <- fromJSON(rawToChar(pokemon_raw$content))$results
 
-dex_url <- "https://pokeapi.co/api/v2/pokemon/"
-
-dex <- map(pokemon$url, GET)
-
-dex2 <- map(dex, function(x) {
+dex <- map(map(map(pokemon$url, GET), function(x) {
   rawToChar(x$content)
-})
+}), fromJSON)
 
-pokedex <- map(dex2, fromJSON)
+pokedex <- pokemon %>%
+  select(url)
+pokedex$data <- dex
 
-pokedex2 <- pokedex
+pokedex <- pokedex %>%
+  unnest_wider(data, names_repair = "universal") %>%
+  select(order...1, name...2, types...3, species...4, height...5, weight...6, abilities...7, base_experience...8, stats...9, held_items...10, is_default...11) %>%
+  clean_names()
 
-pokemon2 <- pokemon
+names(pokedex) <- c("order", "name", "type", "species", "ht", "wt", "abilities", "exp", "stats", "items", "default")
 
-pokemon2$data <- pokedex2
+pokedex <- pokedex %>%
+  unnest_wider(type, names_repair = "minimal") %>%
+  unnest_wider(species, names_repair = "minimal") %>%
+  unnest_wider(abilities, names_repair = "minimal") %>%
+  unnest_wider(stats, names_repair = "minimal") %>%
+  unnest_wider(items, names_repair = "minimal")
 
-pokemon2 <- pokemon2 %>%
-  unnest_wider(data, names_repair = "minimal")
+
