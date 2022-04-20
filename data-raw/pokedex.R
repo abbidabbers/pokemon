@@ -79,6 +79,8 @@ pokedex2$abilities <- map(map(pokedex2$abilities, ~ strsplit(.x, ",")), unlist)
 
 
 # Get API information for each Pokémon species (may include repeat URLs for Pokémon of the same species)
+# IMPORTANT: don't think url is in pokedex2 at this moment currently so if we try and run this it will fail
+  # Probably should pull url into permanent structure
 species_data <- map(map(map(pokedex2$url, GET), function(x) {
   rawToChar(x$content)
 }), fromJSON)
