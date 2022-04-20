@@ -13,21 +13,29 @@ dex <- map(map(map(pokemon$url, GET), function(x) {
 }), fromJSON)
 
 pokedex <- pokemon %>%
-  select(url)
-pokedex$data <- dex
+  select(url) %>%
+  add_column(data = dex) %>%
+  unnest_wider(data, names_repair = "minimal") %>%
+  select(order, name, types, species, height, weight, abilities, base_experience, stats, held_items, is_default) %>%
+  rename_with(~ c("order", "full_name", "type", "species", "ht", "wt", "abilities", "exp", "stats", "items", "default"), names(pokedex))
 
-pokedex <- pokedex %>%
-  unnest_wider(data, names_repair = "universal") %>%
-  select(order...1, name...2, types...3, species...4, height...5, weight...6, abilities...7, base_experience...8, stats...9, held_items...10, is_default...11) %>%
-  clean_names()
+### ---DO NOT CHANGE/RUN ABOVE UNLESS RUNNING ALL
 
-names(pokedex) <- c("order", "name", "type", "species", "ht", "wt", "abilities", "exp", "stats", "items", "default")
+pokedex2 <- pokedex %>%
+  unnest_wider(type, names_repair = "minimal")
 
-pokedex <- pokedex %>%
-  unnest_wider(type, names_repair = "minimal") %>%
+pokedex2$type <- t(pokedex2[[4]][[1]][[1]])
+pokedex2$type <- paste(pokedex2$type[, 1], pokedex2$type[, 2], sep = ", ")
+pokedex2$type <- map(map(pokedex2$type, ~ strsplit(.x, ",")), unlist)
+pokedex2 <- subset(pokedex2, select = -slot)
+
+pokedex2 <- pokedex2 %>%
   unnest_wider(species, names_repair = "minimal") %>%
-  unnest_wider(abilities, names_repair = "minimal") %>%
-  unnest_wider(stats, names_repair = "minimal") %>%
-  unnest_wider(items, names_repair = "minimal")
+  rename(species = name)
 
 
+#   unnest_wider(abilities, names_repair = "minimal") %>%
+#   unnest_wider(stats, names_repair = "minimal") %>%
+#   unnest_wider(items, names_repair = "minimal")
+#
+#
