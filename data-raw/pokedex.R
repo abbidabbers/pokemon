@@ -32,32 +32,32 @@ pokedex2$type <- map(1:1126, ~ pokedex2$type[[.]][[2]][[1]])
 
 # Begin process of creating/expanding variables for regular and hidden abilities
 
-# Find which Pokémon have a hidden ability and what its row index is in the abilities table
+# Find which Pokémon have a hidden ability and what the ability's row index is in the abilities table
 indices_true <- map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
   which(x == TRUE)
 })
 
-# Find which Pokémon have don't a hidden ability and what the row indicies are for its abilities in the abilities table
+# Find which Pokémon have don't a hidden ability and what the row indices are for its abilities in the abilities table
 indices_false <- map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
   which(x == FALSE)
 })
 
-# Get its corresponding row index in the main table (for hidden ability)
+# Get Pokémon's corresponding row index in the main table (for hidden ability)
 index_vals_true <- which(map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
   which(x == TRUE)
 }) != 0)
 
-# Get its corresponding row index in the main table (for those with only 1 regular ability)
+# Get Pokémon's corresponding row index in the main table (for those with only 1 regular ability)
 index_vals_false1 <- which(map(map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
   which(x == FALSE)
 }), length) == 1)
 
-# Get its corresponding row index in the main table (for those with 2 regular abilities)
+# Get Pokémon's corresponding row index in the main table (for those with 2 regular abilities)
 index_vals_false2 <- which(map(map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
   which(x == FALSE)
 }), length) == 2)
 
-# Create the abilities variables
+# Create the ability variables
 pokedex2 <- pokedex2 %>%
   mutate(hidden_ability = ifelse(map(1:1126, ~ is_empty(indices_true[[.]]) == FALSE),
     map(index_vals_true, ~ pokedex2$abilities[[.]][[1]][[1]][[indices_true[[1]]]]), NA
