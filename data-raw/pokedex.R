@@ -1,5 +1,4 @@
 library(tidyverse)
-library(janitor)
 library(httr)
 library(jsonlite)
 
@@ -19,69 +18,43 @@ pokedex <- pokemon_raw %>%
   select(url) %>%
   add_column(data = dex) %>%
   unnest_wider(data, names_repair = "minimal") %>%
-  select(order, name, types, species, height, weight, abilities, base_experience, stats, held_items, is_default) %>%
-  rename_with(~ c("order", "full_name", "type", "species", "ht", "wt", "abilities", "exp", "stats", "items", "default"), names(.))
-
-
-# Note: all pokedex2 entries will eventually be converted to plain pokedex
-pokedex2 <- pokedex
+  select(order, name, types, species, height, weight, abilities,
+         base_experience, stats, is_default) %>%
+  rename_with(~ c("order", "full_name", "type", "species", "ht", "wt",
+                  "abilities", "exp", "stats", "default"), names(.))
 
 # Expand type
-pokedex2$type <- map(1:1126, ~ pokedex2$type[[.]][[2]][[1]])
+pokedex$type <- map(1:1126, ~ pokedex$type[[.]][[2]][[1]])
+
+# Expand abilities
+pokedex$abilities <- map(map(map(1:1126, ~ pokedex$abilities[[.]][[1]][[1]]),
+                              ~ strsplit(.x, ",")), unlist)
+
+# Expand stats
+pokedex$hp <- map(1:1126, ~ pokedex$stats[[.]][[1]][[1]])
+pokedex$attack <- map(1:1126, ~ pokedex$stats[[.]][[1]][[2]])
+pokedex$defense <- map(1:1126, ~ pokedex$stats[[.]][[1]][[3]])
+pokedex$spattack <- map(1:1126, ~ pokedex$stats[[.]][[1]][[4]])
+pokedex$spdefense <- map(1:1126, ~ pokedex$stats[[.]][[1]][[5]])
+pokedex$speed <- map(1:1126, ~ pokedex$stats[[.]][[1]][[6]])
+
+# Get species url
+species_url <- map(1:1126, ~pokedex$species[[.]][[2]])
+
+# Remove stats, species columns, add column for sum of stats
+pokedex <- pokedex %>%
+  select(-stats, -species) %>%
+  mutate(total = map(1:1126, ~pokedex$hp[[.]] +
+                       pokedex$attack[[.]] +
+                       pokedex$defense[[.]] +
+                       pokedex$spattack[[.]] +
+                       pokedex$spdefense[[.]] +
+                       pokedex$speed[[.]]))
 
 
-# Begin process of creating/expanding variables for regular and hidden abilities
-
-# Find which Pokémon have a hidden ability and what the ability's row index is in the abilities table
-indices_true <- map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
-  which(x == TRUE)
-})
-
-# Find which Pokémon have don't a hidden ability and what the row indices are for its abilities in the abilities table
-indices_false <- map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
-  which(x == FALSE)
-})
-
-# Get Pokémon's corresponding row index in the main table (for hidden ability)
-index_vals_true <- which(map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
-  which(x == TRUE)
-}) != 0)
-
-# Get Pokémon's corresponding row index in the main table (for those with only 1 regular ability)
-index_vals_false1 <- which(map(map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
-  which(x == FALSE)
-}), length) == 1)
-
-# Get Pokémon's corresponding row index in the main table (for those with 2 regular abilities)
-index_vals_false2 <- which(map(map(map(1:1126, ~ pokedex2$abilities[[.]][[2]]), function(x) {
-  which(x == FALSE)
-}), length) == 2)
-
-# Create the ability variables
-pokedex2 <- pokedex2 %>%
-  mutate(hidden_ability = ifelse(map(1:1126, ~ is_empty(indices_true[[.]]) == FALSE),
-    map(index_vals_true, ~ pokedex2$abilities[[.]][[1]][[1]][[indices_true[[1]]]]), NA
-  )) %>%
-  mutate(abilities = ifelse(map(map(1:1126, ~ indices_false[[.]]), length) == 2,
-    map(index_vals_false2, ~ paste0(pokedex2$abilities[[.]][[1]][[1]][[indices_false[[1]]]], ", ", pokedex2$abilities[[.]][[1]][[1]][[indices_false[[2]]]])),
-    map(index_vals_false1, ~ pokedex2$abilities[[.]][[1]][[1]][[indices_false[[1]]]])
-  ))
-
-# Make the abilities column a list
-pokedex2$abilities <- map(map(pokedex2$abilities, ~ strsplit(.x, ",")), unlist)
-
-# Expand stats, items, and tie in species information from below
-  # Need better variable order
-  # Change NULLs to NAs?
-
-
-
-
-
-# Get API information for each Pokémon species (may include repeat URLs for Pokémon of the same species)
-# IMPORTANT: don't think url is in pokedex2 at this moment currently so if we try and run this it will fail
-  # Probably should pull url into permanent structure
-species_data <- map(map(map(pokedex2$url, GET), function(x) {
+# Get API information for each Pokémon species
+  # (may include repeat URLs for Pokémon of the same species)
+species_data <- map(map(map(species_url, GET), function(x) {
   rawToChar(x$content)
 }), fromJSON)
 
@@ -90,15 +63,40 @@ species <- pokemon_raw %>%
   select(url) %>%
   add_column(data = species_data) %>%
   unnest_wider(data, names_repair = "minimal") %>%
-  select(name, base_happiness, capture_rate, color, egg_groups, evolves_from_species, forms_switchable, gender_rate, genera, generation, growth_rate, habitat, has_gender_differences, hatch_counter, is_baby, is_legendary, is_mythical, order, shape, varieties)
+  select(name, base_happiness, capture_rate, color, egg_groups,
+         evolves_from_species, forms_switchable, gender_rate, genera,
+         generation, growth_rate, habitat, has_gender_differences, hatch_counter,
+         is_baby, is_legendary, is_mythical, shape, varieties) %>%
+  rename_with(~ c("species_name", "friend", "catch", "color", "egg_groups",
+                  "evolves_from", "form_switch", "f", "genus", "gen", "growth",
+                  "habitat", "gender_diff", "egg_cycles", "baby", "legendary",
+                  "mythical", "shape", "varieties"), names(.))
+
+# Change formatting of gender
+species$f[species$f == -1] <- NA
 
 # Expand variables
 species$color <- map(1:1126, ~ species$color[[.]][[1]])
 species$egg_groups <- map(1:1126, ~ species$egg_groups[[.]][[1]])
-species$evolves_from_species <- map(1:1126, ~ species$evolves_from_species[[.]][[1]])
-species$genera <- map(1:1126, ~ species$genera[[.]][[1]][[8]])
-species$generation <- map(1:1126, ~ species$generation[[.]][[1]])
-species$growth_rate <- map(1:1126, ~ species$growth_rate[[.]][[1]])
-species$habitat <- map(1:1126, ~ species$generation[[.]][[1]])
+species$evolves_from <- map(1:1126, ~ species$evolves_from[[.]][[1]])
+species$genus <- map(1:1126, ~ species$genus[[.]][[1]][[8]])
+species$gen <- map(1:1126, ~ species$gen[[.]][[1]])
+species$growth <- map(1:1126, ~ species$growth[[.]][[1]])
+species$habitat <- map(1:1126, ~ species$habitat[[.]][[1]])
 species$shape <- map(1:1126, ~ species$shape[[.]][[1]])
 species$varieties <- map(1:1126, ~ species$varieties[[.]][[2]][[1]])
+species$f <- map(1:1126, ~species$f[[.]]/8)
+
+# Combine pokedex and species data
+pokedex <- cbind(pokedex, species)
+
+# Reorder variables
+pokedex <- pokedex %>%
+  select(order, full_name, species_name, genus, gen, type, ht, wt, color, shape,
+         habitat, abilities, catch, friend, exp, growth, egg_groups, f,
+         gender_diff, egg_cycles, hp, attack, defense, spattack, spdefense,
+         speed, total, evolves_from, default, varieties,form_switch, baby,
+         legendary, mythical)
+
+# Export data
+usethis::use_data(pokedex, overwrite = TRUE)
