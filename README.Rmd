@@ -40,8 +40,9 @@ library(pokemon)
 
 ## Available Tables
 
-- `pokedex`: Details data included in the official Pokédex such as order, name, types, species, height, weight, abilities, base experience, stats, and held items for each Pokémon. 
+- `pokedex`: Detailed organizer for data included in the official Pokédex such as order, name, types, species, height, weight, abilities, base experience, stats, and held items for each Pokémon. 
 - `items`: A more in-depth set of metadata about items in the Pokémon games, such as item ID, name, cost, category, the power and effect of the move "Fling" when used with this item, and the Pokémon that can hold it.
+- `moves`: A collection of data about moves in the Pokémon games, including name, accuracy, power, generation, etc.
 
 
 ## Example: Pokédex
