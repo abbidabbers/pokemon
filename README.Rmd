@@ -56,3 +56,7 @@ head(pokemon::pokedex)
 - [Abbie Benfield](https://github.com/abbidabbers)
 - [Kacey Jean-Jacques](https://github.com/kaceyjj)
 - [Elina Gordon-Halpern](https://github.com/egordonhalpern)
+
+## Acknowledgements
+
+Many thanks to the folks at PokeAPI for their amazing work
