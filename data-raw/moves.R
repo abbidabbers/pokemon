@@ -1,5 +1,4 @@
 library(tidyverse)
-library(janitor)
 library(httr)
 library(jsonlite)
 
