@@ -29,3 +29,6 @@ item_index$category <- map(1:20, ~ item_index$category[[.]][[1]])
 item_index$fling_power <- map(1:20, ~ item_index$fling_power[[.]][[1]])
 item_index$fling_effect <- map(1:20, ~ item_index$fling_effect[[.]][[1]])
 
+# Export data
+usethis::use_data(item_index, overwrite = TRUE)
+
