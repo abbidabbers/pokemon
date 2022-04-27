@@ -23,7 +23,7 @@ pokedex <- pokemon_raw %>%
     stats, is_default
   ) %>%
   rename_with(~ c(
-    "order", "full_name", "type", "species", "ht", "wt", "abilities", "exp",
+    "order", "name", "type", "species", "ht", "wt", "abilities", "exp",
     "stats", "default"
   ), names(.))
 
@@ -43,6 +43,10 @@ pokedex$defense <- map(1:1126, ~ pokedex$stats[[.]][[1]][[3]])
 pokedex$spattack <- map(1:1126, ~ pokedex$stats[[.]][[1]][[4]])
 pokedex$spdefense <- map(1:1126, ~ pokedex$stats[[.]][[1]][[5]])
 pokedex$speed <- map(1:1126, ~ pokedex$stats[[.]][[1]][[6]])
+
+# Convert height and weight to standard units
+pokedex$ht <- map(1:1126, ~ pokedex$ht[[.]] / 10)
+pokedex$wt <- map(1:1126, ~ pokedex$wt[[.]] / 10)
 
 # Get species url
 species_url <- map(1:1126, ~ pokedex$species[[.]][[2]])
@@ -102,7 +106,7 @@ pokedex <- cbind(pokedex, species)
 # Reorder variables
 pokedex <- pokedex %>%
   select(
-    order, full_name, species_name, genus, gen, type, ht, wt, color, shape,
+    order, name, species_name, genus, gen, type, ht, wt, color, shape,
     habitat, abilities, catch, friend, exp, growth, egg_groups, f, gender_diff,
     egg_cycles, hp, attack, defense, spattack, spdefense, speed, total,
     evolves_from, default, varieties, form_switch, baby, legendary, mythical
