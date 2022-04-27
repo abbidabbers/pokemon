@@ -19,12 +19,12 @@ pokedex <- pokemon_raw %>%
   add_column(data = dex) %>%
   unnest_wider(data, names_repair = "minimal") %>%
   select(
-    order, name, types, species, height, weight, abilities,
-    base_experience, stats, is_default
+    order, name, types, species, height, weight, abilities, base_experience,
+    stats, is_default
   ) %>%
   rename_with(~ c(
-    "order", "full_name", "type", "species", "ht", "wt",
-    "abilities", "exp", "stats", "default"
+    "order", "full_name", "type", "species", "ht", "wt", "abilities", "exp",
+    "stats", "default"
   ), names(.))
 
 # Expand type
@@ -70,16 +70,15 @@ species <- pokemon_raw %>%
   add_column(data = species_data) %>%
   unnest_wider(data, names_repair = "minimal") %>%
   select(
-    name, base_happiness, capture_rate, color, egg_groups,
-    evolves_from_species, forms_switchable, gender_rate, genera,
-    generation, growth_rate, habitat, has_gender_differences, hatch_counter,
-    is_baby, is_legendary, is_mythical, shape, varieties
+    name, base_happiness, capture_rate, color, egg_groups, evolves_from_species,
+    forms_switchable, gender_rate, genera, generation, growth_rate, habitat,
+    has_gender_differences, hatch_counter, is_baby, is_legendary, is_mythical,
+    shape, varieties
   ) %>%
   rename_with(~ c(
-    "species_name", "friend", "catch", "color", "egg_groups",
-    "evolves_from", "form_switch", "f", "genus", "gen", "growth",
-    "habitat", "gender_diff", "egg_cycles", "baby", "legendary",
-    "mythical", "shape", "varieties"
+    "species_name", "friend", "catch", "color", "egg_groups", "evolves_from",
+    "form_switch", "f", "genus", "gen", "growth", "habitat", "gender_diff",
+    "egg_cycles", "baby", "legendary", "mythical", "shape", "varieties"
   ), names(.))
 
 # Change formatting of gender
@@ -104,10 +103,9 @@ pokedex <- cbind(pokedex, species)
 pokedex <- pokedex %>%
   select(
     order, full_name, species_name, genus, gen, type, ht, wt, color, shape,
-    habitat, abilities, catch, friend, exp, growth, egg_groups, f,
-    gender_diff, egg_cycles, hp, attack, defense, spattack, spdefense,
-    speed, total, evolves_from, default, varieties, form_switch, baby,
-    legendary, mythical
+    habitat, abilities, catch, friend, exp, growth, egg_groups, f, gender_diff,
+    egg_cycles, hp, attack, defense, spattack, spdefense, speed, total,
+    evolves_from, default, varieties, form_switch, baby, legendary, mythical
   )
 
 # Export data
