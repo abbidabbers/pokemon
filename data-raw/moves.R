@@ -21,7 +21,7 @@ moves_index <- moves_raw %>%
   select(id, name, accuracy, pp, damage_class, power, learned_by_pokemon, generation) %>%
   rename_with(~ c("id", "item_name", "accuracy", "pp", "damage_class", "power", "learned_by_pokemon", "generation"), names(.))
 
-# Expand variable
+# Expanding variable
 moves_index$id <- map(1:844, ~ moves_index$id[[.]][[1]])
 moves_index$id <- map(1:844, ~ moves_index$item_name[[.]][[1]])
 moves_index$id <- map(1:844, ~ moves_index$accuracy[[.]][[1]])
@@ -30,6 +30,3 @@ moves_index$id <- map(1:844, ~ moves_index$damage_class[[.]][[1]])
 moves_index$id <- map(1:844, ~ moves_index$power[[.]][[1]])
 moves_index$id <- map(1:844, ~ moves_index$learned_by_pokemon[[.]][[1]])
 moves_index$id <- map(1:844, ~ moves_index$generation[[.]][[1]])
-
-
-
