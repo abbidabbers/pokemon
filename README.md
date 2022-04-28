@@ -7,6 +7,8 @@
 
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/pokemon)](https://CRAN.R-project.org/package=pokemon)
 <!-- badges: end -->
 
 `pokemon` is an R package that contains Pokémon-related datasets. The
