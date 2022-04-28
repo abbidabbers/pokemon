@@ -3,7 +3,7 @@ library(httr)
 library(jsonlite)
 
 # Get API url for each Item
-item_get <- GET("https://pokeapi.co/api/v2/item?offset=0&limit=1607")
+item_get <- GET("https://pokeapi.co/api/v2/item?offset=0&limit=10000")
 
 # Create data frame out of JSON file
 item_raw <- fromJSON(rawToChar(item_get$content))$results
