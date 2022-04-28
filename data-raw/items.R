@@ -31,4 +31,3 @@ item_index$fling_effect <- map(1:20, ~ item_index$fling_effect[[.]][[1]])
 
 # Export data
 usethis::use_data(item_index, overwrite = TRUE)
-
