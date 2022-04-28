@@ -1,5 +1,6 @@
 ---
 title: "pokemon_vignette"
+authors: "Abbie Benfield, Elina Gordon-Halpern, Kasey Jean-Jacques"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{pokemon_vignette}
@@ -16,4 +17,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(pokemon)
+library(tidyverse)
+library(httr)
+library(jsonlite)
 ```
