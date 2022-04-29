@@ -31,3 +31,6 @@ moves_index$id <- map(1:844, ~ moves_index$power[[.]][[1]])
 moves_index$id <- map(1:844, ~ moves_index$learned_by_pokemon[[.]][[1]])
 moves_index$id <- map(1:844, ~ moves_index$generation[[.]][[1]])
 
+# Export data
+usethis::use_data(moves_index, overwrite = TRUE)
+
