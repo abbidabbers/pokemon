@@ -33,4 +33,3 @@ moves_index$id <- map(1:844, ~ moves_index$generation[[.]][[1]])
 
 # Export data
 usethis::use_data(moves_index, overwrite = TRUE)
-
