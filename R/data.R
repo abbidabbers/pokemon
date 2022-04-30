@@ -2,7 +2,7 @@
 #'
 #' A dataset of all available Pokémon forms and associated information
 #'
-#' @format A data frame of 1126 rows representing Pokémon and 34 variables
+#' @format A data frame of 1126 rows representing Pokémon and 33 variables
 #' \describe{
 #' \item{order}{Number in sorting order. Almost national order, except families grouped together.}
 #' \item{name}{Name of Pokémon}
@@ -10,10 +10,10 @@
 #' \item{genus}{Genus of Pokémon.}
 #' \item{gen}{Generation Pokémon introduced in.}
 #' \item{type}{Type of Pokémon.}
-#' \item{ht, wt}{Height and weight of Pokémon in meters and kilograms.}
+#' \item{ht}{Height of Pokémon in meters.}
+#' \item{wt}{Weight of Pokémon in kilograms.}
 #' \item{color}{Color of Pokémon.}
 #' \item{shape}{Shape of Pokémon.}
-#' \item{habitat}{Habitat Pokémon can be encountered in.}
 #' \item{abilities}{Abilities Pokémon can have.}
 #' \item{catch}{Base catch rate of Pokémon; up to 255. The higher the number, the easier the catch.}
 #' \item{friend}{Base friendship value of Pokémon when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. Also known as happiness}
@@ -25,7 +25,7 @@
 #' \item{egg_cycles}{Number of egg cycles for Pokémon. Must walk 255 × (egg_cycles + 1) steps before egg hatches, unless utilizing bonuses.}
 #' \item{hp}{Base health points of Pokémon.}
 #' \item{attack}{Base attack of Pokémon.}
-#' \item{_defense}{Base defense of Pokémon.}
+#' \item{defense}{Base defense of Pokémon.}
 #' \item{spattack}{Base special attack of Pokémon.}
 #' \item{spdefense}{Base special defense of Pokémon.}
 #' \item{speed}{Base speed of Pokémon.}

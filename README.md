@@ -9,6 +9,7 @@
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/pokemon)](https://CRAN.R-project.org/package=pokemon)
+
 <!-- badges: end -->
 
 `pokemon` is an R package that contains Pokémon-related datasets. The
@@ -61,9 +62,9 @@ library(pokemon)
 
 ## Available Tables
 
--   `pokedex`: Detailed organizer for data included in the official
-    Pokédex such as order, name, types, species, height, weight,
-    abilities, base experience, stats, and held items for each Pokémon.
+-   `pokedex`: Detailed organizer for data included in the Pokédex such
+    as order, name, types, species, height, weight, abilities, base
+    experience, stats, and held items for each Pokémon.
 -   `item_index`: A more in-depth set of metadata about items in the
     Pokémon games, such as item ID, name, cost, category, the power and
     effect of the move “Fling” when used with this item, and the Pokémon
@@ -74,50 +75,40 @@ library(pokemon)
 ## Example: Pokédex
 
 ``` r
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+library(ggplot2)
+
 head(pokemon::pokedex)
-#>   order       name species_name          genus          gen          type ht
-#> 1     1  bulbasaur    bulbasaur   Seed Pokémon generation-i grass, poison  7
-#> 2     2    ivysaur      ivysaur   Seed Pokémon generation-i grass, poison 10
-#> 3     3   venusaur     venusaur   Seed Pokémon generation-i grass, poison 20
-#> 4     5 charmander   charmander Lizard Pokémon generation-i          fire  6
-#> 5     6 charmeleon   charmeleon  Flame Pokémon generation-i          fire 11
-#> 6     7  charizard    charizard  Flame Pokémon generation-i  fire, flying 17
-#>     wt color     shape   habitat             abilities catch friend exp
-#> 1   69 green quadruped grassland overgrow, chlorophyll    45     50  64
-#> 2  130 green quadruped grassland overgrow, chlorophyll    45     50 142
-#> 3 1000 green quadruped grassland overgrow, chlorophyll    45     50 263
-#> 4   85   red   upright  mountain    blaze, solar-power    45     50  62
-#> 5  190   red   upright  mountain    blaze, solar-power    45     50 142
-#> 6  905   red   upright  mountain    blaze, solar-power    45     50 267
-#>        growth      egg_groups     f gender_diff egg_cycles hp attack defense
-#> 1 medium-slow  monster, plant 0.125       FALSE         20 45     49      49
-#> 2 medium-slow  monster, plant 0.125       FALSE         20 60     62      63
-#> 3 medium-slow  monster, plant 0.125        TRUE         20 80     82      83
-#> 4 medium-slow monster, dragon 0.125       FALSE         20 39     52      43
-#> 5 medium-slow monster, dragon 0.125       FALSE         20 58     64      58
-#> 6 medium-slow monster, dragon 0.125       FALSE         20 78     84      78
-#>   spattack spdefense speed total evolves_from default
-#> 1       65        65    45   318         NULL    TRUE
-#> 2       80        80    60   405    bulbasaur    TRUE
-#> 3      100       100    80   525      ivysaur    TRUE
-#> 4       60        50    65   309         NULL    TRUE
-#> 5       80        65    80   405   charmander    TRUE
-#> 6      109        85   100   534   charmeleon    TRUE
-#>                                                       varieties form_switch
-#> 1                                                     bulbasaur       FALSE
-#> 2                                                       ivysaur       FALSE
-#> 3                        venusaur, venusaur-mega, venusaur-gmax        TRUE
-#> 4                                                    charmander       FALSE
-#> 5                                                    charmeleon       FALSE
-#> 6 charizard, charizard-mega-x, charizard-mega-y, charizard-gmax        TRUE
-#>    baby legendary mythical
-#> 1 FALSE     FALSE    FALSE
-#> 2 FALSE     FALSE    FALSE
-#> 3 FALSE     FALSE    FALSE
-#> 4 FALSE     FALSE    FALSE
-#> 5 FALSE     FALSE    FALSE
-#> 6 FALSE     FALSE    FALSE
+#> # A tibble: 6 × 33
+#>   order name    species_name genus gen   type     ht    wt color shape abilities
+#>   <int> <chr>   <chr>        <chr> <chr> <lis> <dbl> <dbl> <chr> <chr> <list>   
+#> 1     1 bulbas… bulbasaur    Seed… gene… <chr>   0.7   6.9 green quad… <chr [2]>
+#> 2     2 ivysaur ivysaur      Seed… gene… <chr>   1    13   green quad… <chr [2]>
+#> 3     3 venusa… venusaur     Seed… gene… <chr>   2   100   green quad… <chr [2]>
+#> 4     5 charma… charmander   Liza… gene… <chr>   0.6   8.5 red   upri… <chr [2]>
+#> 5     6 charme… charmeleon   Flam… gene… <chr>   1.1  19   red   upri… <chr [2]>
+#> 6     7 chariz… charizard    Flam… gene… <chr>   1.7  90.5 red   upri… <chr [2]>
+#> # … with 22 more variables: catch <int>, friend <int>, exp <int>, growth <chr>,
+#> #   egg_groups <list>, f <dbl>, gender_diff <lgl>, egg_cycles <int>, hp <int>,
+#> #   attack <int>, defense <int>, spattack <int>, spdefense <int>, speed <int>,
+#> #   total <int>, evolves_from <chr>, default <lgl>, varieties <list>,
+#> #   form_switch <lgl>, baby <lgl>, legendary <lgl>, mythical <lgl>
+
+ggplot2::ggplot(data = pokemon::pokedex, aes(x = total, y = catch)) +
+  geom_point() +
+  facet_wrap(~growth) +
+  labs(title = "Catch Rate vs. Total Stat Value, Separated by Growth Rate", x = "Total Stat Value", y = "Catch Rate")
 ```
+
+<img src="man/figures/README-example-1.png" width="100%" />
 
 ## Contributors
 
