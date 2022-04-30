@@ -7,7 +7,7 @@ Authors@R: c(
     person("Elina", "Gordon-Halpern", email = "egordonhalpern@smith.edu", role = "aut"),
     person("Kasey", "Jean-Jacques", email = "kjeanjacques@smith.edu", role = "aut")
     )
-Description: A collection of Pokemon-related datasets, including ones for individual statistics, regional maps, and available moves.
+Description: A collection of Pokemon-related datasets, including tables for individual statistics, items, and available moves.
 License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
