@@ -18,8 +18,8 @@ item_index <- item_raw %>%
   select(url) %>%
   add_column(data = itemdex) %>%
   unnest_wider(data, names_repair = "minimal") %>%
-  select(id, name, cost, category, held_by_pokemon, fling_power, fling_effect) %>%
-  rename_with(~ c("id", "item_name", "item_cost", "category", "pokemon", "fling_power", "fling_effect"), names(.))
+  select(id, name, cost, category, attributes, held_by_pokemon, fling_power, fling_effect) %>%
+  rename_with(~ c("id", "item_name", "item_cost", "category", "attributes", "pokemon", "fling_power", "fling_effect"), names(.))
 
 # Expand Variable
 item_index$id <- map(1:1607, ~ item_index$id[[.]][[1]])
