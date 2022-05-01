@@ -31,5 +31,8 @@ moves_index$power <- map(1:844, ~ moves_index$power[[.]][[1]])
 moves_index$learned_by_pokemon <- map(1:844, ~ moves_index$learned_by_pokemon[[.]][[1]])
 moves_index$generation <- map(1:844, ~ moves_index$generation[[.]][[1]])
 
+# Edit Formatting for learned_by_pokemon
+moves_index$learned_by_pokemon[moves_index$learned_by_pokemon == "NULL"] <- NA
+
 # Export data
 usethis::use_data(moves_index, overwrite = TRUE)
