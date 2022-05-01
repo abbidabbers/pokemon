@@ -31,6 +31,6 @@ Our data is pulled from PokéAPI (https://pokeapi.co), a public database with ma
 We have wrangled and cleaned data for three main tables: `pokedex`, `item_index`, and `moves_index`.
 `pokedex` is our largest available table, detailing the name, type, species, height, weight, abilities, stats, and items for every Pokémon. Type, ability, and stats columns include nested metadata about each of these variables.
 `item_index` is a more in depth collection of meta data about the items in the `pokedex`. This table organizes the id, name, cost, and category of each item, as well as the Pokémon that can hold it and the power and effect of using the move "fling" with that item (Fling is a combat move).
-`moves_index` is a detailed set of information about all Pokémon moves, orgnanizing them by name, generation, accuracy, power, damage class, and the Pokémon that can use them.
+`moves_index` is a detailed set of information about all Pokémon moves, organizing them by name, generation, accuracy, power, damage class, and the Pokémon that can use them.
 
 ## Functionality
