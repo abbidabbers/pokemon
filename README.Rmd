@@ -67,4 +67,6 @@ ggplot2::ggplot(data = pokemon::pokedex, aes(x = total, y = catch)) +
 
 ## Acknowledgements
 
+The Pokéball image for the logo was taken from shorturl.at/itEMX.
+
 Many thanks to the folks at PokeAPI for their amazing work
