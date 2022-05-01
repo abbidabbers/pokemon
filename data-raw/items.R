@@ -29,6 +29,9 @@ item_index$category <- map(1:1607, ~ item_index$category[[.]][[1]])
 item_index$fling_power <- map(1:1607, ~ item_index$fling_power[[.]][[1]])
 item_index$fling_effect <- map(1:1607, ~ item_index$fling_effect[[.]][[1]])
 
+# Edit Formatting for Pokemon and Fling Effect
+item_index$fling_effect[item_index$fling_effect == "NULL"] <- NA
+item_index$pokemon[item_index$pokemon == "NULL"] <- NA
 
 # Export data
 usethis::use_data(item_index, overwrite = TRUE)
