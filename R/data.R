@@ -40,3 +40,43 @@
 #' }
 #' @source https://pokeapi.co/
 "pokedex"
+
+
+
+#' xxx
+#'
+#' xxx
+#'
+#' @format xxx
+#' \describe{
+#' \item{move_name}{xxx}
+#' \item{type}{xxx}
+#' \item{accuracy}{xxx}
+#' \item{pp}{xxx}
+#' \item{damage_class}{xxx}
+#' \item{power}{xxx}
+#' \item{learned_by_pokemon}{xxx}
+#' \item{generation}{xxx}
+#' }
+#' @source https://pokeapi.co/
+"moves_index"
+
+
+
+#' xxx
+#'
+#' xxx
+#'
+#' @format xxx
+#' \describe{
+#' \item{id}{xxx}
+#' \item{item_name}{xxx}
+#' \item{item_cost}{xxx}
+#' \item{category}{xxx}
+#' \item{attributes}{xxx}
+#' \item{pokemon}{xxx}
+#' \item{fling_power}{xxx}
+#' \item{fling_effect}{xxx}
+#' }
+#' @source https://pokeapi.co/
+"items_index"
