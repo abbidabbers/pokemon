@@ -17,9 +17,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(pokemon)
-library(tidyverse)
-library(httr)
-library(jsonlite)
+library(dplyr)
 ```
 
 ## About `pokemon`
