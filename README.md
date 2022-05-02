@@ -88,14 +88,14 @@ library(ggplot2)
 
 head(pokemon::pokedex)
 #> # A tibble: 6 × 33
-#>   order name   species_name genus  gen   type     ht    wt color shape abilities
-#>   <int> <chr>  <chr>        <chr>  <chr> <lis> <dbl> <dbl> <chr> <chr> <list>   
-#> 1     1 bulba… bulbasaur    Seed … gene… <chr…   0.7   6.9 green quad… <chr [2]>
-#> 2     2 ivysa… ivysaur      Seed … gene… <chr…   1    13   green quad… <chr [2]>
-#> 3     3 venus… venusaur     Seed … gene… <chr…   2   100   green quad… <chr [2]>
-#> 4     5 charm… charmander   Lizar… gene… <chr…   0.6   8.5 red   upri… <chr [2]>
-#> 5     6 charm… charmeleon   Flame… gene… <chr…   1.1  19   red   upri… <chr [2]>
-#> 6     7 chari… charizard    Flame… gene… <chr…   1.7  90.5 red   upri… <chr [2]>
+#>   order name    species_name genus gen   type     ht    wt color shape abilities
+#>   <int> <chr>   <chr>        <chr> <chr> <lis> <dbl> <dbl> <chr> <chr> <list>   
+#> 1     1 bulbas… bulbasaur    Seed… gene… <chr>   0.7   6.9 green quad… <chr [2]>
+#> 2     2 ivysaur ivysaur      Seed… gene… <chr>   1    13   green quad… <chr [2]>
+#> 3     3 venusa… venusaur     Seed… gene… <chr>   2   100   green quad… <chr [2]>
+#> 4     5 charma… charmander   Liza… gene… <chr>   0.6   8.5 red   upri… <chr [2]>
+#> 5     6 charme… charmeleon   Flam… gene… <chr>   1.1  19   red   upri… <chr [2]>
+#> 6     7 chariz… charizard    Flam… gene… <chr>   1.7  90.5 red   upri… <chr [2]>
 #> # … with 22 more variables: catch <int>, friend <int>, exp <int>, growth <chr>,
 #> #   egg_groups <list>, f <dbl>, gender_diff <lgl>, egg_cycles <int>, hp <int>,
 #> #   attack <int>, defense <int>, spattack <int>, spdefense <int>, speed <int>,
@@ -118,6 +118,7 @@ ggplot2::ggplot(data = pokemon::pokedex, aes(x = total, y = catch)) +
 
 ## Acknowledgements
 
-The Pokéball image for the logo was taken from shorturl.at/itEMX.
+The Pokéball image for the logo was made by
+[Andreuvv](https://commons.wikimedia.org/wiki/File:Pok%C3%A9_Ball_icon.svg).
 
 Many thanks to the folks at PokeAPI for their amazing work
