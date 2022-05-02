@@ -9,7 +9,7 @@
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/pokemon)](https://CRAN.R-project.org/package=pokemon)
-
+[![R-CMD-check](https://github.com/abbidabbers/pokemon/workflows/R-CMD-check/badge.svg)](https://github.com/abbidabbers/pokemon/actions)
 <!-- badges: end -->
 
 `pokemon` is an R package that contains Pokémon-related datasets. The
