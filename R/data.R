@@ -79,4 +79,4 @@
 #' \item{fling_effect}{xxx}
 #' }
 #' @source https://pokeapi.co/
-"items_index"
+"item_index"
