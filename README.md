@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pokemon <img src="data-raw/pokémon_logo.png" align="right" height="135">
+# pokemon <img src="data-raw/pokémon_logo.png" align="right" height="180">
 
 <!-- badges: start -->
 
