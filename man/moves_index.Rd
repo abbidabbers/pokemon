@@ -5,7 +5,6 @@
 \alias{moves_index}
 \title{xxx}
 \format{
-xxx
 \describe{
 \item{move_name}{xxx}
 \item{type}{xxx}

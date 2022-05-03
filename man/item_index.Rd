@@ -5,16 +5,15 @@
 \alias{item_index}
 \title{xxx}
 \format{
-xxx
+A data frame of 1607 rows representing items in Pokémon games, organized by 7 variables. Items can be picked up and carried by both Pokémon and their trainers, and have a variety of uses.
 \describe{
-\item{id}{xxx}
-\item{item_name}{xxx}
-\item{item_cost}{xxx}
-\item{category}{xxx}
-\item{attributes}{xxx}
-\item{pokemon}{xxx}
-\item{fling_power}{xxx}
-\item{fling_effect}{xxx}
+\item{item_name}{Name of the item.}
+\item{item_cost}{Price of the item in stores within the game.}
+\item{category}{Category of items that this item falls into.}
+\item{attributes}{A list of attributes, or characterists, about the item}
+\item{pokemon}{A list of Pokémon that can hold/use the item.}
+\item{fling_power}{Power of using the move "Fling" with this item.}
+\item{fling_effect}{Effect of using the move "Fling" with this item.}
 }
 }
 \source{
