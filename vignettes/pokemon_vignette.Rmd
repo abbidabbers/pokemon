@@ -26,21 +26,23 @@ library(dplyr)
 Our data is pulled from PokéAPI (https://pokeapi.co), a public database with massive amounts of Pokémon-related information stored in JSON files. Many of these files are heavily nested and difficult to interact with, so our package allows users to easily import and interact with the API data in R.
 
 ## Inspiration
+The original inspiration for this package was the starwars data set in the dplyr package, which provides a similar collection of data for the Star Wars universe. We wanted to match the magnitude of data provided by tables such as this one, and we of course took lots of inspiration from the PokéAPI as we conducted our research. We would also like to acknowledge Will Hopper and Ben Baumer for their encouragement and suggestive contributions.
 
 ## About the Datasets 
 We have wrangled and cleaned data for three main tables: `pokedex`, `item_index`, and `moves_index`.
 `pokedex` is our largest available table, detailing the name, type, species, height, weight, abilities, stats, and items for every Pokémon. Type, ability, and stats columns include nested metadata about each of these variables.
-`item_index` is a more in depth collection of meta data about the items in the `pokedex`. This table organizes the id, name, cost, and category of each item, as well as the Pokémon that can hold it and the power and effect of using the move "fling" with that item (Fling is a combat move).
+`item_index` is a more in depth collection of meta data about the items in the `pokedex`. This table organizes the name, cost, attributes and category of each item, as well as the Pokémon that can hold it and the power and effect of using the move "fling" with that item (Fling is a combat move).
 `moves_index` is a detailed set of information about all Pokémon moves, organizing them by name, generation, accuracy, power, damage class, and the Pokémon that can use them.
 
 ## Who should use this Package?
+`pokemon` is for Pokémon enthusiasts, data science learners, and anyone else who is interested in working with our easily accessible API data. Our data has been cleaned and reorganized to allow optimal user interactions.
 
 ## What can we do with this Data?
+There are numerous applications for the data sets in this package. Using the metadata included in each table, users can analyze specific Pokémon, the moves that they use, the items that they hold, and much more about the interactions between the variables within these broader sets, as demonstrated in the next section.
 
 ## Functionality and Examples
 
 # Example 1:
-
 Below is a demonstration of a potential use for the item index table. We have used a simple data visualization to analyze a potential relationship between an item's fling power and its cost.
 
 ```{r}
@@ -49,7 +51,7 @@ library(ggplot2)
 
 head(pokemon::item_index)
 ggplot(data = item_index, mapping = aes(x = fling_power, y = item_cost)) + 
-  geom_jitter() + 
+  geom_jitter(width = 10) + 
   ylim(0, 20000) +
   labs(title = "Item Cost by Fling Power", x = "Fling Power", y = "Item Cost" )
 
@@ -58,4 +60,4 @@ ggplot(data = item_index, mapping = aes(x = fling_power, y = item_cost)) +
 **Note: The y limits for this visualization have been reduced for reading clarity, but the items table does include high outliers, with the highest item cost being 100,000 (monetary units for the Pokémon games are not specified).
 
 ## Notes and Limitations
-his data does not account for the two most recent Pokémon game releases, Pokémon Shining Pearl and Brilliant Diamond, and Pokémon Legends: Arceus, because the API has not yet added it to their database. It also does not incorporate data from the upcoming games, Pokémon Scarlet and Violet (scheduled for release in Fall 2022). According to the PokéAPI's documentation, some  Sword and Shield data may be inaccurate because of the method they used to obtain the information. Additionally, some information from the API has not been added or updated. For this package, we intentionally selected variables that have data for all generations.
+This data does not account for the two most recent Pokémon game releases, Pokémon Shining Pearl and Brilliant Diamond, and Pokémon Legends: Arceus, because the API has not yet added it to their database. It also does not incorporate data from the upcoming games, Pokémon Scarlet and Violet (scheduled for release in Fall 2022). According to the PokéAPI's documentation, some Pokémon Sword and Shield data may be inaccurate because of the method they used to obtain the information. Additionally, some information from the API has not been added or updated. For this package, we intentionally selected variables that have data for all generations.
