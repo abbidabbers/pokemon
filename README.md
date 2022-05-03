@@ -13,26 +13,28 @@ status](https://www.r-pkg.org/badges/version/pokemon)](https://CRAN.R-project.or
 <!-- badges: end -->
 
 `pokemon` is an R package that contains Pokémon-related datasets. The
-first Pokémon video game came out in 1996, and Nintendo has since
-released nine generations of games, including 37 individual games in the
-main series. It is one of the best-selling video game series and is
-actively played by millions of people. The Pokédex is a comprehensive
-collection of stats for all Pokémon in the series, which has made it the
-most common Pokémon-related data to collect. However, in the past, only
-a limited subset of Pokédex data was available in data sets, so this
-package expands the availability by including data sets related to items
-and moves, plus an expanded Pokédex. Our datasets use information
-retrieved from PokéAPI (<https://pokeapi.co>), a public database of
-Pokémon-related data with an API interface. However, our package is not
-a wrapper package for the API, as it solely contains the datasets
-automatically available to the user. Our goal in creating this package
-is to make a design that allows users to view and easily interact with
-extensive Pokémon-related data without being forced to collect it
-themselves because no such package currently exists (to our knowledge).
-This package can help create visualizations to compare different types
-of Pokémon, analyze various items, examine the prevalence of particular
-moves, and more. It allows Pokémon enthusiasts and those hunting for
-datasets to perform Pokémon-related data analysis more smoothly.
+first [Pokémon video
+game](https://en.wikipedia.org/wiki/Pok%C3%A9mon_(video_game_series))
+came out in 1996, and Nintendo has since released nine generations of
+games, including 37 individual games in the main series. It is one of
+the best-selling video game series and is actively played by millions of
+people. The Pokédex is a comprehensive collection of stats for all
+Pokémon in the series, which has made it the most common Pokémon-related
+data to collect. However, in the past, only a limited subset of Pokédex
+data was available in data sets, so this package expands the
+availability by including data sets related to items and moves, plus an
+expanded Pokédex. Our datasets use information retrieved from
+[PokéAPI](https://pokeapi.co), a public database of Pokémon-related data
+with an API interface. However, our package is not a wrapper package for
+the API, as it solely contains the datasets automatically available to
+the user. Our goal in creating this package is to make a design that
+allows users to view and easily interact with extensive Pokémon-related
+data without being forced to collect it themselves because no such
+package currently exists (to our knowledge). This package can help
+create visualizations to compare different types of Pokémon, analyze
+various items, examine the prevalence of particular moves, and more. It
+allows Pokémon enthusiasts and those hunting for datasets to perform
+Pokémon-related data analysis more smoothly.
 
 Note some limitations: This data does not account for the two most
 recent Pokémon game releases, Pokémon Shining Pearl and Brilliant
@@ -121,4 +123,4 @@ ggplot2::ggplot(data = pokemon::pokedex, aes(x = total, y = catch)) +
 The Pokéball image for the logo was made by
 [Andreuvv](https://commons.wikimedia.org/wiki/File:Pok%C3%A9_Ball_icon.svg).
 
-Many thanks to the folks at PokeAPI for their amazing work
+Many thanks to the folks at PokéAPI for their amazing work.
