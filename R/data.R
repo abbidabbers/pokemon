@@ -63,11 +63,11 @@
 
 
 
-#' xxx
+#' Available Items
 #'
-#' xxx
+#' A data frame representing items in Pokémon games. Items can be picked up and carried by both Pokémon and their trainers, and have a variety of uses.
 #'
-#' @format A data frame of 1607 rows representing items in Pokémon games, organized by 7 variables. Items can be picked up and carried by both Pokémon and their trainers, and have a variety of uses.
+#' @format A data frame of 1607 rows and 7 variables.
 #' \describe{
 #' \item{item_name}{Name of the item.}
 #' \item{item_cost}{Price of the item in stores within the game.}
