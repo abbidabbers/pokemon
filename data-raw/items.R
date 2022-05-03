@@ -22,11 +22,12 @@ item_index <- item_raw %>%
   rename_with(~ c("item_name", "item_cost", "category", "attributes", "pokemon", "fling_power", "fling_effect"), names(.))
 
 # Expand Variables
-item_index$item_name <- map(1:1607, ~ item_index$item_name[[.]][[1]])
-item_index$item_cost <- map(1:1607, ~ item_index$item_cost[[.]][[1]])
-item_index$category <- map(1:1607, ~ item_index$category[[.]][[1]])
+item_index$item_name <- map_chr(1:1607, ~ item_index$item_name[[.]][[1]])
+item_index$item_cost <- map_dbl(1:1607, ~ item_index$item_cost[[.]][[1]])
+item_index$category <- map_chr(1:1607, ~ item_index$category[[.]][[1]])
 item_index$fling_power <- map(1:1607, ~ item_index$fling_power[[.]][[1]])
 item_index$fling_effect <- map(1:1607, ~ item_index$fling_effect[[.]][[1]])
+item_index$pokemon <- map(1:1607, ~ item_index$pokemon[[.]][[1]])
 
 # Edit Formatting for Pokemon and Fling Effect
 item_index$fling_effect[item_index$fling_effect == "NULL"] <- NA
