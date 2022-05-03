@@ -25,8 +25,8 @@ item_index <- item_raw %>%
 item_index$item_name <- map_chr(1:1607, ~ item_index$item_name[[.]][[1]])
 item_index$item_cost <- map_dbl(1:1607, ~ item_index$item_cost[[.]][[1]])
 item_index$category <- map_chr(1:1607, ~ item_index$category[[.]][[1]])
-item_index$fling_power <- map(1:1607, ~ item_index$fling_power[[.]][[1]])
-item_index$fling_effect <- map(1:1607, ~ item_index$fling_effect[[.]][[1]])
+item_index$fling_power <- map_int(1:1607, ~ item_index$fling_power[[.]][[1]])
+item_index$fling_effect <- map_chr(1:1607, ~ item_index$fling_effect[[.]][[1]])
 item_index$pokemon <- map(1:1607, ~ item_index$pokemon[[.]][[1]])
 item_index$attributes <- map(1:1607, ~ item_index$attributes[[.]][[1]])
 
