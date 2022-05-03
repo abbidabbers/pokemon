@@ -3,9 +3,9 @@
 \docType{data}
 \name{item_index}
 \alias{item_index}
-\title{xxx}
+\title{Available Items}
 \format{
-A data frame of 1607 rows representing items in Pokémon games, organized by 7 variables. Items can be picked up and carried by both Pokémon and their trainers, and have a variety of uses.
+A data frame of 1607 rows and 7 variables.
 \describe{
 \item{item_name}{Name of the item.}
 \item{item_cost}{Price of the item in stores within the game.}
@@ -23,6 +23,6 @@ https://pokeapi.co/
 item_index
 }
 \description{
-xxx
+A data frame representing items in Pokémon games. Items can be picked up and carried by both Pokémon and their trainers, and have a variety of uses.
 }
 \keyword{datasets}
