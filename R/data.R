@@ -43,20 +43,20 @@
 
 
 
-#' xxx
+#' Pokémon moves
 #'
-#' xxx
+#' A collection of data about moves and associated information in the Pokémon games.
 #'
-#' @format
+#' @format A data frame of 844 rows representing Pokémon moves and 8 variables
 #' \describe{
-#' \item{move_name}{xxx}
-#' \item{type}{xxx}
-#' \item{accuracy}{xxx}
-#' \item{pp}{xxx}
-#' \item{damage_class}{xxx}
-#' \item{power}{xxx}
-#' \item{learned_by_pokemon}{xxx}
-#' \item{generation}{xxx}
+#' \item{move_name}{Name of move.}
+#' \item{type}{The elemental type, or category, this move belongs in, e.g., ice.}
+#' \item{accuracy}{Percent value of how likely this move is to be successful.}
+#' \item{pp}{Power Points - The number of times this move can be used.}
+#' \item{damage_class}{The type of damage the move inflicts on the target, e.g. physical.}
+#' \item{power}{The base power of this move with a value of 0 if it does not have a base power.}
+#' \item{learned_by_pokemon}{List of Pokemon that can learn the move.}
+#' \item{generation}{The generation in which this move was introduced.}
 #' }
 #' @source https://pokeapi.co/
 "moves_index"
