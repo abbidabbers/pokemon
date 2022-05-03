@@ -40,3 +40,4 @@ We have wrangled and cleaned data for three main tables: `pokedex`, `item_index`
 ## Functionality and Examples
 
 ## Notes and Limitations
+his data does not account for the two most recent Pokémon game releases, Pokémon Shining Pearl and Brilliant Diamond, and Pokémon Legends: Arceus, because the API has not yet added it to their database. It also does not incorporate data from the upcoming games, Pokémon Scarlet and Violet (scheduled for release in Fall 2022). According to the PokéAPI's documentation, some Pokémon Sword and Shield data may be inaccurate because of the method they used to obtain the information. Additionally, some information from the API has not been added or updated. For this package, we intentionally selected variables that have data for all generations.
