@@ -16,7 +16,7 @@ movesdex <- map(map(map(moves_raw$url, GET), function(x) {
 # Add information to dataframe, expand it, and choose appropriate variables
 moves_index <- moves_raw %>%
   select(url) %>%
-  add_column(data = dex) %>%
+  add_column(data = movesdex) %>%
   unnest_wider(data, names_repair = "minimal") %>%
   select(
     name, type, accuracy, pp, damage_class, power, learned_by_pokemon,
