@@ -21,19 +21,20 @@ item_index <- item_raw %>%
   select(name, cost, category, attributes, held_by_pokemon, fling_power, fling_effect) %>%
   rename_with(~ c("item_name", "item_cost", "category", "attributes", "pokemon", "fling_power", "fling_effect"), names(.))
 
+# Edit Formatting for Attributes, Pokemon, and Fling Effect
+item_index$fling_effect[item_index$fling_effect == "NULL"] <- NA
+item_index$pokemon[item_index$pokemon == "NULL"] <- NA
+item_index$attributes[item_index$attributes == "NULL"] <- NA
+
 # Expand Variables
 item_index$item_name <- map_chr(1:1607, ~ item_index$item_name[[.]][[1]])
 item_index$item_cost <- map_dbl(1:1607, ~ item_index$item_cost[[.]][[1]])
 item_index$category <- map_chr(1:1607, ~ item_index$category[[.]][[1]])
 item_index$fling_power <- map_int(1:1607, ~ item_index$fling_power[[.]][[1]])
 item_index$fling_effect <- map_chr(1:1607, ~ item_index$fling_effect[[.]][[1]])
-item_index$pokemon <- map(1:1607, ~ item_index$pokemon[[.]][[1]])
+item_index$pokemon <- map(1:1607, ~ item_index$pokemon[[.]][[1]][[1]])
 item_index$attributes <- map(1:1607, ~ item_index$attributes[[.]][[1]])
 
-# Edit Formatting for Attributes, Pokemon, and Fling Effect
-item_index$fling_effect[item_index$fling_effect == "NULL"] <- NA
-item_index$pokemon[item_index$pokemon == "NULL"] <- NA
-item_index$attributes[item_index$attributes == "NULL"] <- NA
 
 # Export data
 usethis::use_data(item_index, overwrite = TRUE)
