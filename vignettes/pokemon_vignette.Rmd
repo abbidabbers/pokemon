@@ -42,7 +42,7 @@ There are numerous applications for the data sets in this package. Using the met
 
 ## Functionality and Examples
 
-# Example 1:
+### Example 1:
 Below is a demonstration of a potential use for the item index table. We have used a simple data visualization to analyze a potential relationship between an item's fling power and its cost.
 
 ```{r}
