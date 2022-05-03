@@ -18,8 +18,13 @@ item_index <- item_raw %>%
   select(url) %>%
   add_column(data = itemdex) %>%
   unnest_wider(data, names_repair = "minimal") %>%
-  select(name, cost, category, attributes, held_by_pokemon, fling_power, fling_effect) %>%
-  rename_with(~ c("item_name", "item_cost", "category", "attributes", "pokemon", "fling_power", "fling_effect"), names(.))
+  select(
+    name, cost, category, attributes, held_by_pokemon, fling_power, fling_effect
+  ) %>%
+  rename_with(~ c(
+    "item_name", "item_cost", "category", "attributes", "pokemon",
+    "fling_power", "fling_effect"
+  ), names(.))
 
 # Edit Formatting for Attributes, Pokemon, and Fling Effect
 item_index$fling_effect[item_index$fling_effect == "NULL"] <- NA
