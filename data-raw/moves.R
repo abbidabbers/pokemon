@@ -9,7 +9,7 @@ moves_get <- GET("https://pokeapi.co/api/v2/move?limit=100000&offset=0")
 moves_raw <- fromJSON(rawToChar(moves_get$content))$results
 
 # Get API information for each Pokémon move
-dex <- map(map(map(moves_raw$url, GET), function(x) {
+movesdex <- map(map(map(moves_raw$url, GET), function(x) {
   rawToChar(x$content)
 }), fromJSON)
 
