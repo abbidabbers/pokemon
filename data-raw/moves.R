@@ -18,8 +18,14 @@ moves_index <- moves_raw %>%
   select(url) %>%
   add_column(data = dex) %>%
   unnest_wider(data, names_repair = "minimal") %>%
-  select(name, type, accuracy, pp, damage_class, power, learned_by_pokemon, generation) %>%
-  rename_with(~ c("move_name", "type", "accuracy", "pp", "damage_class", "power", "learned_by_pokemon", "generation"), names(.))
+  select(
+    name, type, accuracy, pp, damage_class, power, learned_by_pokemon,
+    generation
+  ) %>%
+  rename_with(~ c(
+    "move_name", "type", "accuracy", "pp", "damage_class", "power",
+    "learned_by_pokemon", "generation"
+  ), names(.))
 
 # Expand variable
 moves_index$move_name <- map_chr(1:844, ~ moves_index$move_name[[.]][[1]])
