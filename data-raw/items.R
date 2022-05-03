@@ -28,6 +28,7 @@ item_index$category <- map_chr(1:1607, ~ item_index$category[[.]][[1]])
 item_index$fling_power <- map(1:1607, ~ item_index$fling_power[[.]][[1]])
 item_index$fling_effect <- map(1:1607, ~ item_index$fling_effect[[.]][[1]])
 item_index$pokemon <- map(1:1607, ~ item_index$pokemon[[.]][[1]])
+item_index$attributes <- map(1:1607, ~ item_index$attributes[[.]][[1]])
 
 # Edit Formatting for Attributes, Pokemon, and Fling Effect
 item_index$fling_effect[item_index$fling_effect == "NULL"] <- NA
