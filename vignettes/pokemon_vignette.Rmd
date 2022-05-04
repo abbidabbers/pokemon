@@ -60,7 +60,10 @@ We dropped variables from the original API that were not useful for analysis. Fo
 Below is a demonstration of a potential use for the item index table. We have used a simple data visualization to analyze a potential relationship between an item's fling power and its cost.
 
 ```{r}
-ggplot(data = item_index, mapping = aes(x = fling_power, y = item_cost)) + 
+filtered_items <- item_index %>%
+  filter(category != "all-mail" & category != "apricorn-balls" & category != "data-cards" & category !=  "dynamax-crystals" & category != "event-items" & category != "jewels" & category != "miracle-shooter" & category != "plot-advancement" & category != "special-balls" & category != "standard-balls" & category != "species-candies" & category != "unused" & category != "z-crystals")
+
+ggplot(data = filtered_items, mapping = aes(x = fling_power, y = item_cost)) + 
   geom_jitter(width = 10) + 
   ylim(0, 20000) +
   facet_wrap(~category) +
@@ -68,7 +71,7 @@ ggplot(data = item_index, mapping = aes(x = fling_power, y = item_cost)) +
 
 ```
 
-**Note: The y limits for this visualization have been reduced for reading clarity, but the items table does include high outliers, with the highest item cost being 100,000 (monetary units for the Pokémon games are not specified).
+**Note: The y limits for this visualization have been reduced for reading clarity, but the items table does include high outliers, with the highest item cost being 100,000 (monetary units for the Pokémon games are not specified). Also, categories that do not include values for both item cost and fling power have been removed in this visualization.
 
 ### Example 2
 Here is another example of a potential use of the moves index table. Down below, we have created a data visualization analyzing a potential relationship between a move's base power and its accuracy (shown in %), separated by type. 
