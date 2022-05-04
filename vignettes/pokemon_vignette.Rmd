@@ -63,7 +63,8 @@ Below is a demonstration of a potential use for the item index table. We have us
 ggplot(data = item_index, mapping = aes(x = fling_power, y = item_cost)) + 
   geom_jitter(width = 10) + 
   ylim(0, 20000) +
-  labs(title = "Item Cost by Fling Power", x = "Fling Power", y = "Item Cost" )
+  facet_wrap(~category) +
+  labs(title = "Item Cost by Fling Power, Separated by Item Category", x = "Fling Power", y = "Item Cost" )
 
 ```
 
