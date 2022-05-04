@@ -2,7 +2,7 @@ library(tidyverse)
 library(httr)
 library(jsonlite)
 
-# Get API url for each Item
+# Get API url for each item
 item_get <- GET("https://pokeapi.co/api/v2/item?offset=0&limit=10000")
 
 # Create data frame out of JSON file
@@ -26,12 +26,12 @@ item_index <- item_raw %>%
     "fling_power", "fling_effect"
   ), names(.))
 
-# Edit Formatting for Attributes, Pokemon, and Fling Effect
+# Edit formatting
 item_index$fling_effect[item_index$fling_effect == "NULL"] <- NA
 item_index$pokemon[item_index$pokemon == "NULL"] <- NA
 item_index$attributes[item_index$attributes == "NULL"] <- NA
 
-# Expand Variables
+# Expand variables
 item_index$item_name <- map_chr(1:1607, ~ item_index$item_name[[.]][[1]])
 item_index$item_cost <- map_dbl(1:1607, ~ item_index$item_cost[[.]][[1]])
 item_index$category <- map_chr(1:1607, ~ item_index$category[[.]][[1]])

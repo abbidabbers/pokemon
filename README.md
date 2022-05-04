@@ -67,25 +67,17 @@ library(pokemon)
 -   `pokedex`: Detailed organizer for data included in the Pokédex such
     as order, name, types, species, height, weight, abilities, base
     experience, and stats for each Pokémon.
--   `item_index`: A more in-depth set of metadata about items in the
-    Pokémon games, such as item name, cost, category, and attributes,
-    the power and effect of the move “Fling” when used with this item,
-    and the Pokémon that can hold it.
+-   `item_index`: Metadata about items in the Pokémon games, such as
+    item name, cost, category, and attributes, the power and effect of
+    the move “Fling” when used with this item, and the Pokémon that can
+    hold it.
 -   `moves_index`: A collection of data about moves in the Pokémon
-    games, including name, accuracy, power, generation, etc.
+    games, including name, accuracy, power, and generation release.
 
 ## Example: Pokédex
 
 ``` r
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 library(ggplot2)
 
 head(pokemon::pokedex)

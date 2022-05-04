@@ -85,7 +85,7 @@ species <- pokemon_raw %>%
     "egg_cycles", "baby", "legendary", "mythical", "shape", "varieties"
   ), names(.))
 
-# Change formatting of gender
+# Edit formatting
 species$f[species$f == -1] <- NA
 species$evolves_from[species$evolves_from == "NULL"] <- NA
 species$shape[species$shape == "NULL"] <- NA
