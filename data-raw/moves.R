@@ -27,7 +27,7 @@ moves_index <- moves_raw %>%
     "learned_by_pokemon", "generation"
   ), names(.))
 
-# Expand variable
+# Expand the variables
 moves_index$move_name <- map_chr(1:844, ~ moves_index$move_name[[.]][[1]])
 moves_index$type <- map_chr(1:844, ~ moves_index$type[[.]][[1]])
 moves_index$accuracy <- map_int(1:844, ~ moves_index$accuracy[[.]][[1]])
@@ -40,5 +40,5 @@ moves_index$generation <- map_chr(1:844, ~ moves_index$generation[[.]][[1]])
 # Edit Formatting for learned_by_pokemon
 moves_index$learned_by_pokemon[moves_index$learned_by_pokemon == "NULL"] <- NA
 
-# Export data
+# Export the data
 usethis::use_data(moves_index, overwrite = TRUE)
