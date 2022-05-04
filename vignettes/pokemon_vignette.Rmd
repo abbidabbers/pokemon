@@ -57,7 +57,7 @@ We dropped variables from the original API that were not useful for analysis. Fo
 ## Examples
 
 ### Example 1
-Below is a demonstration of a potential use for the item index table. We have used a simple data visualization to analyze a potential relationship between an item's fling power and its cost.
+Below is a demonstration of a potential use for the item index table. We have used a simple data visualization to analyze a potential relationship between an item's fling power and its cost and faceted it by category, for those categories of items that include values for both cost and fling power.
 
 ```{r}
 filtered_items <- item_index %>%
