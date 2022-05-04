@@ -1,11 +1,11 @@
 #' Available Pokémon
 #'
-#' A dataset of all available Pokémon forms and associated information
+#' A dataset of all available Pokémon forms and associated information.s
 #'
-#' @format A data frame of 1126 rows representing Pokémon and 33 variables
+#' @format A data frame of 1126 rows representing Pokémon and 33 variables:
 #' \describe{
 #' \item{order}{Number in sorting order. Almost national order, except families grouped together.}
-#' \item{name}{Name of Pokémon}
+#' \item{name}{Name of Pokémon.}
 #' \item{species_name}{Species of Pokémon.}
 #' \item{genus}{Genus of Pokémon.}
 #' \item{gen}{Generation Pokémon introduced in.}
@@ -16,7 +16,7 @@
 #' \item{shape}{Shape of Pokémon.}
 #' \item{abilities}{Abilities Pokémon can have.}
 #' \item{catch}{Base catch rate of Pokémon; up to 255. The higher the number, the easier the catch.}
-#' \item{friend}{Base friendship value of Pokémon when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. Also known as happiness}
+#' \item{friend}{Base friendship value of Pokémon when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. Also known as happiness.}
 #' \item{exp}{Base experience value gained by defeating this Pokémon.}
 #' \item{growth}{Growth rate of Pokémon; how fast it gains levels.}
 #' \item{egg_groups}{Egg group(s) of Pokémon.}
@@ -38,16 +38,16 @@
 #' \item{legendary}{Whether legendary Pokémon.}
 #' \item{mythical}{Whether mythical Pokémon.}
 #' }
-#' @source https://pokeapi.co/
+#' @source https://pokeapi.co/pokemon and https://pokeapi.co/pokemon-species
 "pokedex"
 
 
 
-#' Pokémon moves
+#' Pokémon Moves
 #'
 #' A collection of data about moves and associated information in the Pokémon games.
 #'
-#' @format A data frame of 844 rows representing Pokémon moves and 8 variables
+#' @format A data frame of 844 rows representing Pokémon moves and 8 variables:
 #' \describe{
 #' \item{move_name}{Name of move.}
 #' \item{type}{The elemental type, or category, this move belongs in, e.g., ice.}
@@ -58,16 +58,16 @@
 #' \item{learned_by_pokemon}{List of Pokemon that can learn the move.}
 #' \item{generation}{The generation in which this move was introduced.}
 #' }
-#' @source https://pokeapi.co/
+#' @source https://pokeapi.co/move
 "moves_index"
 
 
 
 #' Available Items
 #'
-#' A data frame representing items in Pokémon games. Items can be picked up and carried by both Pokémon and their trainers, and have a variety of uses.
+#' A data frame representing items available in Pokémon games. Items can be picked up and carried by both Pokémon and their trainers, and have a variety of uses.
 #'
-#' @format A data frame of 1607 rows and 7 variables.
+#' @format A data frame of 1607 rows and 7 variables:
 #' \describe{
 #' \item{item_name}{Name of the item.}
 #' \item{item_cost}{Price of the item in stores within the game.}

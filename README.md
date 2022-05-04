@@ -116,3 +116,6 @@ The Pokéball image for the logo was made by
 [Andreuvv](https://commons.wikimedia.org/wiki/File:Pok%C3%A9_Ball_icon.svg).
 
 Many thanks to the folks at PokéAPI for their amazing work.
+
+Some of the variable descriptions in the documentation are taken from
+the PokéAPI documentation.

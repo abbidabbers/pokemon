@@ -3,9 +3,9 @@
 \docType{data}
 \name{moves_index}
 \alias{moves_index}
-\title{Pokémon moves}
+\title{Pokémon Moves}
 \format{
-A data frame of 844 rows representing Pokémon moves and 8 variables
+A data frame of 844 rows representing Pokémon moves and 8 variables:
 \describe{
 \item{move_name}{Name of move.}
 \item{type}{The elemental type, or category, this move belongs in, e.g., ice.}
@@ -18,7 +18,7 @@ A data frame of 844 rows representing Pokémon moves and 8 variables
 }
 }
 \source{
-https://pokeapi.co/
+https://pokeapi.co/move
 }
 \usage{
 moves_index

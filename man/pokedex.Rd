@@ -5,10 +5,10 @@
 \alias{pokedex}
 \title{Available Pokémon}
 \format{
-A data frame of 1126 rows representing Pokémon and 33 variables
+A data frame of 1126 rows representing Pokémon and 33 variables:
 \describe{
 \item{order}{Number in sorting order. Almost national order, except families grouped together.}
-\item{name}{Name of Pokémon}
+\item{name}{Name of Pokémon.}
 \item{species_name}{Species of Pokémon.}
 \item{genus}{Genus of Pokémon.}
 \item{gen}{Generation Pokémon introduced in.}
@@ -19,7 +19,7 @@ A data frame of 1126 rows representing Pokémon and 33 variables
 \item{shape}{Shape of Pokémon.}
 \item{abilities}{Abilities Pokémon can have.}
 \item{catch}{Base catch rate of Pokémon; up to 255. The higher the number, the easier the catch.}
-\item{friend}{Base friendship value of Pokémon when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. Also known as happiness}
+\item{friend}{Base friendship value of Pokémon when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon. Also known as happiness.}
 \item{exp}{Base experience value gained by defeating this Pokémon.}
 \item{growth}{Growth rate of Pokémon; how fast it gains levels.}
 \item{egg_groups}{Egg group(s) of Pokémon.}
@@ -43,12 +43,12 @@ A data frame of 1126 rows representing Pokémon and 33 variables
 }
 }
 \source{
-https://pokeapi.co/
+https://pokeapi.co/pokemon and https://pokeapi.co/pokemon-species
 }
 \usage{
 pokedex
 }
 \description{
-A dataset of all available Pokémon forms and associated information
+A dataset of all available Pokémon forms and associated information.s
 }
 \keyword{datasets}
