@@ -70,6 +70,15 @@ ggplot(data = item_index, mapping = aes(x = fling_power, y = item_cost)) +
 **Note: The y limits for this visualization have been reduced for reading clarity, but the items table does include high outliers, with the highest item cost being 100,000 (monetary units for the Pokémon games are not specified).
 
 ### Example 2
+Here is another example of a potential use of the moves index table. Down below, we have created a data visualization analyzing a potential relationship between a move's base power and its accuracy (shown in %), separated by type. 
+
+```{r}
+ggplot(data = moves_index, mapping = aes(x = power, y = accuracy)) + 
+  geom_point() + 
+  facet_wrap(~type) +
+  labs(title = "An Analysis of a Pokémon Move's Power by Accuracy, Separated by Type", x = "Power", y = "Accuracy in %" )
+
+```
 
 ## Limitations
 This data does not account for the two most recent Pokémon game releases, Pokémon Shining Pearl and Brilliant Diamond, and Pokémon Legends: Arceus, because the API has not yet added it to their database. It also does not incorporate data from the upcoming games, Pokémon Scarlet and Violet (scheduled for release in Fall 2022). According to the PokéAPI's documentation, some Pokémon Sword and Shield data may be inaccurate because of the method they used to obtain the information. Additionally, some information from the API has not been added or updated. For this package, we intentionally selected variables that have data for all generations.
