@@ -9,14 +9,14 @@ moves_get <- GET("https://pokeapi.co/api/v2/move?limit=100000&offset=0")
 moves_raw <- fromJSON(rawToChar(moves_get$content))$results
 
 # Get API information for each move
-movesdex <- map(map(map(moves_raw$url, GET), function(x) {
+movedex <- map(map(map(moves_raw$url, GET), function(x) {
   rawToChar(x$content)
 }), fromJSON)
 
 # Add information to data frame, expand it, and choose appropriate variables
 moves_index <- moves_raw %>%
   select(url) %>%
-  add_column(data = movesdex) %>%
+  add_column(data = movedex) %>%
   unnest_wider(data, names_repair = "minimal") %>%
   select(
     name, type, accuracy, pp, damage_class, power, learned_by_pokemon,
