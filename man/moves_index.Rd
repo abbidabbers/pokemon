@@ -8,13 +8,13 @@
 A data frame of 844 rows representing Pokémon moves and 8 variables:
 \describe{
 \item{move_name}{Name of move.}
-\item{type}{The elemental type, or category, this move belongs in, e.g., ice.}
-\item{accuracy}{Percent value of how likely this move is to be successful.}
-\item{pp}{Power Points - The number of times this move can be used.}
-\item{damage_class}{The type of damage the move inflicts on the target, e.g. physical.}
-\item{power}{The base power of this move with a value of 0 if it does not have a base power.}
-\item{learned_by_pokemon}{List of Pokemon that can learn the move.}
-\item{generation}{The generation in which this move was introduced.}
+\item{type}{Elemental type, or category, move belongs in, e.g., ice.}
+\item{accuracy}{Percent value of how likely move is to be successful.}
+\item{pp}{Power Points - Number of times move can be used.}
+\item{damage_class}{Type of damage move inflicts on target, e.g. physical.}
+\item{power}{Base power of move, with a value of 0 if it does not have a base power.}
+\item{learned_by_pokemon}{List of Pokemon that can learn move.}
+\item{generation}{Generation in which this move was introduced.}
 }
 }
 \source{

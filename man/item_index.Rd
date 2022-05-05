@@ -7,17 +7,17 @@
 \format{
 A data frame of 1607 rows and 7 variables:
 \describe{
-\item{item_name}{Name of the item.}
-\item{item_cost}{Price of the item in stores within the game.}
-\item{category}{Category of items that this item falls into.}
-\item{attributes}{A list of attributes, or characterists, about the item}
-\item{pokemon}{A list of Pokémon that can hold/use the item.}
-\item{fling_power}{Power of using the move "Fling" with this item.}
-\item{fling_effect}{Effect of using the move "Fling" with this item.}
+\item{item_name}{Name of item.}
+\item{item_cost}{Price of item in stores within game.}
+\item{category}{Category of item falls into.}
+\item{attributes}{List of attributes, or characterists, about item.}
+\item{pokemon}{List of Pokémon that can hold/use item.}
+\item{fling_power}{Power of using move "Fling" with this item.}
+\item{fling_effect}{Effect of using move "Fling" with this item.}
 }
 }
 \source{
-https://pokeapi.co/
+https://pokeapi.co/item
 }
 \usage{
 item_index

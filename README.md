@@ -26,7 +26,7 @@ availability by including data sets related to items and moves, plus an
 expanded Pokédex. Our datasets use information retrieved from
 [PokéAPI](https://pokeapi.co), a public database of Pokémon-related data
 with an API interface. However, our package is not a wrapper package for
-the API, as it solely contains the datasets automatically available to
+the API because it only contains the datasets automatically available to
 the user. Our goal in creating this package is to make a design that
 allows users to view and easily interact with extensive Pokémon-related
 data without being forced to collect it themselves because no such
@@ -36,16 +36,16 @@ various items, examine the prevalence of particular moves, and more. It
 allows Pokémon enthusiasts and those hunting for datasets to perform
 Pokémon-related data analysis more smoothly.
 
-Note some limitations: This data does not account for the two most
-recent Pokémon game releases, Pokémon Shining Pearl and Brilliant
-Diamond, and Pokémon Legends: Arceus, because the API has not yet added
-it to their database. It also does not incorporate data from the
-upcoming games, Pokémon Scarlet and Violet (scheduled for release in
-Fall 2022). According to the PokéAPI’s documentation, some Pokémon Sword
-and Shield data may be inaccurate because of the method they used to
-obtain the information. Additionally, some information from the API has
-not been added or updated (we tried to use variables that have data for
-all generations).
+Note some limitations: This data does not account for the most recent
+Pokémon game releases, Pokémon Shining Pearl and Brilliant Diamond, and
+Pokémon Legends: Arceus, because the API has not yet added it to their
+database. It also does not incorporate data from the upcoming games,
+Pokémon Scarlet and Violet (scheduled for release in Fall 2022).
+According to the PokéAPI’s documentation, some Pokémon Sword and Shield
+data may be inaccurate because of the method they used to obtain the
+information. Additionally, some information from the API has not been
+added or updated (we tried to use variables that have data for all
+generations).
 
 ## Installation
 
@@ -115,7 +115,7 @@ ggplot2::ggplot(data = pokemon::pokedex, aes(x = total, y = catch)) +
 The Pokéball image for the logo was made by
 [Andreuvv](https://commons.wikimedia.org/wiki/File:Pok%C3%A9_Ball_icon.svg).
 
-Many thanks to the folks at PokéAPI for their amazing work.
+Many thanks to the folks at PokéAPI for their incredible work.
 
-Some of the variable descriptions in the documentation are taken from
+Some of the variable descriptions in the documentation are copied from
 the PokéAPI documentation.
