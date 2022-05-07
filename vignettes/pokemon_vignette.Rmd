@@ -11,7 +11,9 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 5,
+  fig.height = 6
 )
 ```
 
@@ -61,13 +63,22 @@ Below is a demonstration of a potential use for the item index table. We used a 
 
 ```{r}
 filtered_items <- item_index %>%
-  filter(category != "all-mail" & category != "apricorn-balls" & category != "data-cards" & category != "dynamax-crystals" & category != "event-items" & category != "jewels" & category != "miracle-shooter" & category != "plot-advancement" & category != "special-balls" & category != "standard-balls" & category != "species-candies" & category != "unused" & category != "z-crystals")
+  filter(!category %in% c(
+    "all-mail", "apricorn-balls", "data-cards", "dynamax-crystals", 
+    "event-items", "jewels", "miracle-shooter",  "plot-advancement", 
+    "special-balls", "standard-balls",  "species-candies", "unused", 
+    "z-crystals")
+  )
 
 ggplot(data = filtered_items, mapping = aes(x = fling_power, y = item_cost)) +
   geom_jitter(width = 10) +
   ylim(0, 20000) +
   facet_wrap(~category) +
-  labs(title = "Item Cost by Fling Power, Separated by Item Category", x = "Fling Power", y = "Item Cost")
+  labs(
+    title = "Item Cost by Fling Power, Separated by Item Category", 
+    x = "Fling Power", 
+    y = "Item Cost"
+  )
 ```
 
 **Note: We reduced the y-limits for this visualization for reading clarity, though the items table does include high outliers as the most expensive item costs 100,000 (monetary units for the Pokémon games are not specified). We also removed categories that do not have values for item cost and fling power in this visualization.
@@ -79,7 +90,11 @@ Here is an example of a potential use of the moves table. Below, we have created
 ggplot(data = moves_index, mapping = aes(x = power, y = accuracy)) +
   geom_point() +
   facet_wrap(~type) +
-  labs(title = "An Analysis of a Pokémon Move's Power by Accuracy, Separated by Type", x = "Power", y = "Accuracy in %")
+  labs(
+    title = "An Analysis of a Pokémon Move's Power by Accuracy, Separated by Type", 
+    x = "Power", 
+    y = "Accuracy in %"
+  )
 ```
 
 ## Limitations
